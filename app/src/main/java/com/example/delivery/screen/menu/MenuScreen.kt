@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -35,7 +34,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
 import com.example.delivery.R
-import com.example.delivery.domain.models.PizzaUI
 import com.example.delivery.domain.models.MenuTabs
 import com.example.delivery.domain.models.getText
 import com.example.delivery.screen.pizza.PizzaContent

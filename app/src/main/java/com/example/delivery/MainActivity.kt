@@ -1,4 +1,4 @@
-package com.example.delivery.screen
+package com.example.delivery
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

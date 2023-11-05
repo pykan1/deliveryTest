@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("io.github.skeptick.libres")
+    id("de.jensklingenberg.ktorfit")
+    id("com.google.devtools.ksp")
 }
 
 libres {
@@ -48,7 +50,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.3"
     }
     packaging {
         resources {
@@ -74,6 +76,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
     /**
      *Koin*/
@@ -96,6 +99,15 @@ dependencies {
 
     //Glide
     implementation("io.coil-kt:coil-compose:2.5.0")
+
+
+    //Ktorfit
+    implementation("de.jensklingenberg.ktorfit:ktorfit-lib-light:1.9.1")
+    implementation("de.jensklingenberg.ktorfit:ktorfit-lib:1.9.1")
+    implementation("de.jensklingenberg.ktorfit:ktorfit-ksp:1.9.1")
+
+    implementation("com.google.devtools.ksp:symbol-processing-api:1.9.20-1.0.14")
+    ksp("de.jensklingenberg.ktorfit:ktorfit-ksp:1.9.1")
 
 
 }

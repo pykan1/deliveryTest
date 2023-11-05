@@ -1,6 +1,5 @@
 package com.example.delivery.screen.pizza
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,8 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyItemScope
-import androidx.compose.foundation.lazy.LazyScopeMarker
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
@@ -29,7 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.delivery.domain.models.PizzaUI
+import com.example.delivery.domain.models.MealUI
 
 @Composable
 fun PizzaContent(modifier: Modifier) {
@@ -41,18 +38,18 @@ fun PizzaContent(modifier: Modifier) {
 
     LazyColumn(modifier = modifier) {
         items(state.pizza) {
-            PizzaItem(pizzaUI = it)
+            PizzaItem(mealUI = it)
         }
     }
 
 }
 
 @Composable
-fun PizzaItem(pizzaUI: PizzaUI) {
+fun PizzaItem(mealUI: MealUI) {
     Column {
         Row(modifier = Modifier.fillMaxWidth()) {
             AsyncImage(
-                model = pizzaUI.image,
+                model = mealUI.strImageSource,
                 contentDescription = "",
                 modifier = Modifier.size(135.dp),
                 contentScale = ContentScale.Crop
@@ -63,7 +60,7 @@ fun PizzaItem(pizzaUI: PizzaUI) {
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Text(
-                    text = pizzaUI.title, style = TextStyle(
+                    text = mealUI.strMeal, style = TextStyle(
                         fontSize = 16.sp,
                         fontWeight = FontWeight(700),
                         color = Color(0xFF222831),
@@ -71,7 +68,7 @@ fun PizzaItem(pizzaUI: PizzaUI) {
                 )
 
                 Text(
-                    text = pizzaUI.body,
+                    text = mealUI.strMeal,
                     style = TextStyle(
                         fontSize = 14.sp,
                         fontWeight = FontWeight(400),
@@ -86,7 +83,7 @@ fun PizzaItem(pizzaUI: PizzaUI) {
                         .height(32.dp)
                 ) {
                     Button(onClick = { }) {
-                        Text(text = "от ${pizzaUI.minPrice} р")
+                        Text(text = "от ${100} р")
                     }
                 }
 
