@@ -19,6 +19,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -38,11 +39,15 @@ import com.example.delivery.domain.models.MenuTabs
 import com.example.delivery.domain.models.getText
 import com.example.delivery.screen.pizza.PizzaContent
 import com.example.delivery.screen.uiKit.DeliveryPageContainer
+import org.koin.androidx.compose.koinViewModel
 
 class MenuScreen : Screen {
     @Composable
     override fun Content() {
-        val viewModel = MenuViewModel()
+        val viewModel = koinViewModel<MenuViewModel>()
+        LaunchedEffect(viewModel) {
+            viewModel.loadData()
+        }
         DeliveryPageContainer(background = Color(0xFFFBFBFB), header = {
             Row {
                 Text(text = "header")

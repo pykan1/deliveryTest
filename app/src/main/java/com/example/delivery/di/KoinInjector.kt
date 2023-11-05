@@ -7,7 +7,7 @@ import org.koin.core.module.Module
 object KoinInjector {
     val koinApp = startKoin {
         loadKoinModules(
-            listOf(networkModule, apiModule, repositoryModule)
+            listOf(networkModule, apiModule, repositoryModule, viewModelModule)
         )
     }
 

@@ -42,7 +42,6 @@ private fun provideHttpClient(
     json: Json,
 ) = HttpClient {
 
-
     install(HttpRedirect) {
         checkHttpMethod = false
         allowHttpsDowngrade = false
@@ -53,8 +52,6 @@ private fun provideHttpClient(
     }
 
     HttpResponseValidator {
-
-
         handleResponseExceptionWithRequest { cause, request ->
             println(cause)
             println(request)
